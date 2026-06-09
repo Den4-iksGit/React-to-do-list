@@ -37,22 +37,22 @@ const useTasks = () => {
       return task
     }))
   }, [tasks])
-  const addTask = useCallback(() => {
+  const addTask = useCallback((title) => {
 
-    if (newTaskTitle.trim().length > 0) {
-      const newTask = {
-        id: crypto?.randomUUID() ?? Date.now().toString(),
-        title: newTaskTitle,
-        isDone: false
-      }
-      setTasks((prevTasks) => [...prevTasks, newTask
-      ])
-      setNewTaskTitle('')
-      setSearchTaskQuery('')
-      newTaskInputRef.current.focus()
+
+    const newTask = {
+      id: crypto?.randomUUID() ?? Date.now().toString(),
+      title,
+      isDone: false
     }
+    setTasks((prevTasks) => [...prevTasks, newTask
+    ])
+    setNewTaskTitle('')
+    setSearchTaskQuery('')
+    newTaskInputRef.current.focus()
 
-  }, [newTaskTitle])
+
+  }, [])
 
   useEffect(() => {
     saveTasks(tasks)
