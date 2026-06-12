@@ -12,7 +12,6 @@ export const TasksProvider = (props) => {
   const {
     tasks,
     filteredTasks,
-
     deleteTask,
     deleteAllTasks,
     toggleTaskComplete,
@@ -21,7 +20,9 @@ export const TasksProvider = (props) => {
     searchTaskQuery,
     setSearchTaskQuery,
     newTaskInputRef,
-    addTask
+    addTask,
+    disappearingTaskId,
+    appearingTaskId
   } = useTasks()
   const {
     firstIncompleteTaskRef,
@@ -42,7 +43,9 @@ export const TasksProvider = (props) => {
         searchTaskQuery,
         setSearchTaskQuery,
         newTaskInputRef,
-        addTask
+        addTask,
+        disappearingTaskId,
+        appearingTaskId
       }}
     >
       {children}
